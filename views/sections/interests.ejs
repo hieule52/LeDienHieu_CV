@@ -1,0 +1,83 @@
+<!-- ═══════════════════════════════ BEYOND THE CODE / SPORTS & LIFESTYLE ═══════════════════════════════ -->
+<section id="interests" class="section section-alt" aria-labelledby="interests-title">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="section-label" aria-hidden="true"><%= t.interests.label %></p>
+      <h2 id="interests-title" class="section-title"><%= t.interests.title %></h2>
+      <p class="section-subtitle"><%= t.interests.subtitle %></p>
+    </div>
+
+    <!-- Sports Story & Philosophy Card -->
+    <div class="card sports-story-card fade-up">
+      <div class="sports-story-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      </div>
+      <div class="sports-story-body">
+        <p class="sports-story-text">
+          <%- t.interests.story %>
+        </p>
+      </div>
+    </div>
+
+    <!-- Sports Gallery (Clean 4-Card Responsive Grid) -->
+    <div class="sports-gallery-section fade-up" style="transition-delay:100ms">
+      <h3 class="sports-gallery-heading"><%= t.interests.galleryTitle %></h3>
+      
+      <div class="sports-gallery-grid" role="region" aria-label="Sports and team activities gallery">
+        <% sportsGallery.forEach(function(item, idx) { %>
+          <div class="card card-hoverable sports-photo-card" role="figure" aria-label="<%= item.caption %>">
+            <div class="sports-photo-wrap">
+              <img
+                src="<%= item.img %>"
+                alt="<%= item.alt %>"
+                class="sports-photo-img sports-photo-<%= idx + 1 %>"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="sports-photo-overlay">
+                <span class="sports-tag-badge"><%= item.tag %></span>
+                <p class="sports-photo-caption"><%= item.caption %></p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Working Style & Hobbies Grid -->
+    <div class="lifestyle-split-grid fade-up" style="transition-delay:200ms; margin-top: var(--space-3xl);">
+      <!-- Working Style -->
+      <div class="card" style="padding: var(--space-xl);" aria-label="<%= t.interests.workStyleTitle %>">
+        <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md); color: var(--text-primary); display: flex; align-items: center; gap: var(--space-sm);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          <%= t.interests.workStyleTitle %>
+        </h3>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-lg);">
+          <%= t.interests.workStyleDesc %>
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);" role="list">
+          <% workingStyle.forEach(function(style) { %>
+            <span class="style-tag" role="listitem"><%= style %></span>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Hobbies Icons -->
+      <div class="card" style="padding: var(--space-xl);" aria-label="<%= t.interests.beyondTitle %>">
+        <h3 style="font-size: var(--text-base); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: var(--space-lg);">
+          <%= t.interests.beyondTitle %>
+        </h3>
+        <div class="interests-grid-compact" role="list">
+          <% interests.forEach(function(item) { %>
+            <div class="interest-item-compact" role="listitem">
+              <span class="interest-emoji" aria-hidden="true"><%= item.icon %></span>
+              <span class="interest-name"><%= item.name %></span>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

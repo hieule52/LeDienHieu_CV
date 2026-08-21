@@ -1,0 +1,95 @@
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section id="about" class="section section-alt" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid-clean">
+
+      <!-- Left Column: Story & Objective -->
+      <div class="about-content">
+        <div class="section-header" style="text-align:left;margin-bottom:var(--space-lg)">
+          <p class="section-label" aria-hidden="true"><%= t.about.label %></p>
+          <h2 id="about-title" class="section-title"><%= t.about.title %></h2>
+        </div>
+
+        <div class="fade-up">
+          <p class="about-paragraph"><%- t.about.p1 %></p>
+        </div>
+
+        <div class="fade-up" style="transition-delay:80ms">
+          <p class="about-paragraph"><%- t.about.p2 %></p>
+        </div>
+
+        <div class="fade-up" style="transition-delay:160ms">
+          <p class="about-paragraph"><%- t.about.p3 %></p>
+        </div>
+
+        <!-- Career Objective -->
+        <div class="fade-up" style="transition-delay:240ms">
+          <div class="career-objective-box">
+            <p class="objective-header"><%= t.about.objectiveTitle %></p>
+            <p class="about-paragraph" style="margin:0;font-size:var(--text-sm)">
+              <%= t.about.objectiveText %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Quick Facts & Highlights Card -->
+      <div class="about-side-column fade-up" style="transition-delay:150ms">
+        <div class="card about-highlights-card">
+          <div class="card-header-badge">
+            <span class="mono-badge">// Academic &amp; Skills Highlights</span>
+          </div>
+
+          <div class="quick-facts-vertical">
+            <div class="quick-fact">
+              <div class="quick-fact-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <p class="quick-fact-label"><%= t.about.facts.degreeLabel %></p>
+                <p class="quick-fact-value"><%= t.about.facts.degreeValue %></p>
+              </div>
+            </div>
+
+            <div class="quick-fact">
+              <div class="quick-fact-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <p class="quick-fact-label"><%= t.about.facts.majorLabel %></p>
+                <p class="quick-fact-value"><%= t.about.facts.majorValue %></p>
+              </div>
+            </div>
+
+            <div class="quick-fact">
+              <div class="quick-fact-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <p class="quick-fact-label"><%= t.about.facts.englishLabel %></p>
+                <p class="quick-fact-value"><%= t.about.facts.englishValue %></p>
+              </div>
+            </div>
+
+            <div class="quick-fact">
+              <div class="quick-fact-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div>
+                <p class="quick-fact-label"><%= t.about.facts.focusLabel %></p>
+                <p class="quick-fact-value"><%= t.about.facts.focusValue %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-quote-box">
+            <p class="quote-text">
+              "Continuous learning, diligence, and genuine passion for solving technical problems."
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

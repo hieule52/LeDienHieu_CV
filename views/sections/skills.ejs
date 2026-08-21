@@ -1,0 +1,85 @@
+<!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+<section id="skills" class="section section-alt" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="section-label" aria-hidden="true"><%= t.skills.label %></p>
+      <h2 id="skills-title" class="section-title"><%= t.skills.title %></h2>
+      <p class="section-subtitle"><%= t.skills.subtitle %></p>
+    </div>
+
+    <div class="skills-grid">
+
+      <!-- Development -->
+      <div class="card skills-card fade-up" style="transition-delay:80ms" aria-label="<%= t.skills.groupDev %>">
+        <div class="skills-group">
+          <p class="skills-group-title"><%= t.skills.groupDev %></p>
+          <div class="tags-grid" role="list">
+            <% skills.development.forEach(function(skill) { %>
+              <span class="tag" role="listitem"><%= skill %></span>
+            <% }); %>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <p class="skills-group-title"><%= t.skills.groupDb %></p>
+          <div class="tags-grid" role="list">
+            <% skills.database.forEach(function(skill) { %>
+              <span class="tag" role="listitem"><%= skill %></span>
+            <% }); %>
+          </div>
+        </div>
+
+        <div class="skills-group" style="margin-bottom:0">
+          <p class="skills-group-title"><%= t.skills.groupTools %></p>
+          <div class="tags-grid" role="list">
+            <% skills.tools.forEach(function(skill) { %>
+              <span class="tag" role="listitem"><%= skill %></span>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+      <!-- IT Support Knowledge -->
+      <div class="card skills-card fade-up" style="transition-delay:160ms" aria-label="<%= t.skills.groupIt %>">
+        <div class="skills-group">
+          <p class="skills-group-title" style="color:var(--_indigo-400)"><%= t.skills.groupIt %></p>
+          <ul class="it-checklist" role="list">
+            <% skills.itSupport.forEach(function(skill) { %>
+              <li class="it-check-item" role="listitem">
+                <span class="it-check-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <%= skill %>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="card skills-card fade-up" style="transition-delay:240ms" aria-label="<%= t.skills.groupSoft %>">
+        <div class="skills-group" style="margin-bottom:0">
+          <p class="skills-group-title"><%= t.skills.groupSoft %></p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm)" role="list">
+            <% skills.soft.forEach(function(skill) { %>
+              <div class="soft-skill-item" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <% if (skill.icon === 'users') { %><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><% } %>
+                  <% if (skill.icon === 'message-square') { %><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><% } %>
+                  <% if (skill.icon === 'headphones') { %><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/><% } %>
+                  <% if (skill.icon === 'book-open') { %><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><% } %>
+                  <% if (skill.icon === 'zap') { %><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/><% } %>
+                  <% if (skill.icon === 'refresh-cw') { %><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/><% } %>
+                  <% if (skill.icon === 'shield') { %><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><% } %>
+                  <% if (skill.icon === 'cpu') { %><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/><% } %>
+                </svg>
+                <%= skill.name %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

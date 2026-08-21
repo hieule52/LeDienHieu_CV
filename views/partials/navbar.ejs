@@ -1,0 +1,78 @@
+<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<header role="banner">
+  <nav id="navbar" class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="HIEU.DEV — Go to home">
+        <span class="logo-bracket">&lt;</span>HIEU<span class="logo-bracket">.</span>DEV<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#about"     class="nav-link" aria-label="<%= t.nav.about %>"><%= t.nav.about %></a></li>
+        <li><a href="#expertise" class="nav-link" aria-label="<%= t.nav.expertise %>"><%= t.nav.expertise %></a></li>
+        <li><a href="#skills"    class="nav-link" aria-label="<%= t.nav.skills %>"><%= t.nav.skills %></a></li>
+        <li><a href="#projects"  class="nav-link" aria-label="<%= t.nav.projects %>"><%= t.nav.projects %></a></li>
+        <li><a href="#education" class="nav-link" aria-label="<%= t.nav.education %>"><%= t.nav.education %></a></li>
+        <li><a href="#interests" class="nav-link" aria-label="<%= t.nav.interests %>"><%= t.nav.interests %></a></li>
+        <li><a href="#contact"   class="nav-link" aria-label="<%= t.nav.contact %>"><%= t.nav.contact %></a></li>
+      </ul>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switch-wrap">
+          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch language">
+            <span class="lang-code <%= lang === 'en' ? 'active' : '' %>" data-lang="en">EN</span>
+            <span class="lang-sep">/</span>
+            <span class="lang-code <%= lang === 'vi' ? 'active' : '' %>" data-lang="vi">VI</span>
+          </button>
+        </div>
+
+        <a href="<%= person.cvUrl %>" class="btn btn-primary btn-sm" download aria-label="<%= t.nav.downloadCv %> PDF">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <%= t.nav.downloadCv %>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+          aria-controls="nav-mobile"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="nav-mobile" class="nav-mobile" role="menu" aria-label="Mobile navigation">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border-color); margin-bottom: var(--space-xs);">
+      <span style="font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Language</span>
+      <div class="lang-switch-wrap">
+        <button id="lang-toggle-btn-mobile" class="lang-toggle-btn" aria-label="Switch language">
+          <span class="lang-code <%= lang === 'en' ? 'active' : '' %>" data-lang="en">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-code <%= lang === 'vi' ? 'active' : '' %>" data-lang="vi">VI</span>
+        </button>
+      </div>
+    </div>
+
+    <a href="#about"     class="nav-link" role="menuitem"><%= t.nav.about %></a>
+    <a href="#expertise" class="nav-link" role="menuitem"><%= t.nav.expertise %></a>
+    <a href="#skills"    class="nav-link" role="menuitem"><%= t.nav.skills %></a>
+    <a href="#projects"  class="nav-link" role="menuitem"><%= t.nav.projects %></a>
+    <a href="#education" class="nav-link" role="menuitem"><%= t.nav.education %></a>
+    <a href="#interests" class="nav-link" role="menuitem"><%= t.nav.interests %></a>
+    <a href="#contact"   class="nav-link" role="menuitem"><%= t.nav.contact %></a>
+    <a href="<%= person.cvUrl %>" class="btn btn-primary" download role="menuitem" aria-label="<%= t.nav.downloadCv %> PDF">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <%= t.nav.downloadCv %>
+    </a>
+  </div>
+</header>

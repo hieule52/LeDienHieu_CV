@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary Meta -->
+  <title><%= meta.title %></title>
+  <meta name="description" content="<%= meta.description %>" />
+  <% if (typeof meta.keywords !== 'undefined') { %>
+  <meta name="keywords" content="<%= meta.keywords %>" />
+  <% } %>
+  <meta name="author" content="Lê Diên Hiếu" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <% if (typeof meta.url !== 'undefined') { %>
+  <link rel="canonical" href="<%= meta.url %>" />
+  <% } %>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= meta.title %>" />
+  <meta property="og:description" content="<%= meta.description %>" />
+  <% if (typeof meta.url !== 'undefined') { %><meta property="og:url" content="<%= meta.url %>" /><% } %>
+  <% if (typeof meta.image !== 'undefined') { %><meta property="og:image" content="<%= meta.image %>" /><% } %>
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Lê Diên Hiếu Portfolio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= meta.title %>" />
+  <meta name="twitter:description" content="<%= meta.description %>" />
+  <% if (typeof meta.image !== 'undefined') { %><meta name="twitter:image" content="<%= meta.image %>" /><% } %>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <% if (typeof person !== 'undefined') { %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "<%= person.name %>",
+    "jobTitle": "Software Developer & IT Support",
+    "email": "<%= person.email %>",
+    "telephone": "<%= person.phone %>",
+    "url": "<%= typeof meta.url !== 'undefined' ? meta.url : '' %>",
+    "sameAs": [
+      "<%= person.github %>"
+    ],
+    "knowsAbout": ["Software Development", "Web Development", "IT Support", "PC Hardware"]
+  }
+  </script>
+  <% } %>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
