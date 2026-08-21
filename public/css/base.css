@@ -238,20 +238,22 @@ button {
 /* ─── Fade-up animation ─────────────────────────────────────────────────────── */
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transform: translateY(20px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
-.fade-up.visible {
+.fade-up.visible,
+.hero-section .fade-up {
   opacity: 1;
   transform: translateY(0);
 }
 
 .fade-in {
   opacity: 0;
-  transition: opacity var(--transition-slow);
+  transition: opacity var(--transition-base);
 }
 
-.fade-in.visible {
+.fade-in.visible,
+.hero-section .fade-in {
   opacity: 1;
 }

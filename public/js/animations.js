@@ -11,13 +11,22 @@ export function initAnimations() {
 
 // ─── Scroll reveal (IntersectionObserver) ────────────────────────────────────
 function initScrollAnimations() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const elements = document.querySelectorAll('.fade-up, .fade-in');
 
-  if (prefersReduced) {
-    // Make all animated elements immediately visible
-    document.querySelectorAll('.fade-up, .fade-in').forEach((el) => {
-      el.classList.add('visible');
+  // Immediately reveal elements already in viewport
+  const revealInViewport = () => {
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 100 && rect.bottom > -50) {
+        el.classList.add('visible');
+      }
     });
+  };
+
+  revealInViewport();
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((el) => el.classList.add('visible'));
     return;
   }
 
@@ -30,10 +39,10 @@ function initScrollAnimations() {
         }
       });
     },
-    { rootMargin: '-60px 0px', threshold: 0.1 }
+    { rootMargin: '100px 0px 50px 0px', threshold: 0 }
   );
 
-  document.querySelectorAll('.fade-up, .fade-in').forEach((el) => {
+  elements.forEach((el) => {
     observer.observe(el);
   });
 }
