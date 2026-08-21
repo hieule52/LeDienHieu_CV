@@ -235,25 +235,15 @@ button {
   border: 0;
 }
 
-/* ─── Fade-up animation ─────────────────────────────────────────────────────── */
+/* ─── Fade-up animation (Always Visible & Safe) ────────────────────────────────── */
 .fade-up {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: none;
   transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
-.fade-up.visible,
-.hero-section .fade-up {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .fade-in {
-  opacity: 0;
+  opacity: 1;
   transition: opacity var(--transition-base);
 }
 
-.fade-in.visible,
-.hero-section .fade-in {
-  opacity: 1;
-}
