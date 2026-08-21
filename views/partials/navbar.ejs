@@ -22,11 +22,11 @@
       <div class="nav-actions">
         <!-- Language Switcher -->
         <div class="lang-switch-wrap">
-          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch language">
-            <span class="lang-code <%= lang === 'en' ? 'active' : '' %>" data-lang="en">EN</span>
+          <div class="lang-toggle-btn" role="group" aria-label="Chuyển đổi ngôn ngữ / Switch language">
+            <a href="/?lang=vi" class="lang-code <%= lang === 'vi' ? 'active' : '' %>" aria-label="Tiếng Việt">VI</a>
             <span class="lang-sep">/</span>
-            <span class="lang-code <%= lang === 'vi' ? 'active' : '' %>" data-lang="vi">VI</span>
-          </button>
+            <a href="/?lang=en" class="lang-code <%= lang === 'en' ? 'active' : '' %>" aria-label="English">EN</a>
+          </div>
         </div>
 
         <a href="<%= person.cvUrl %>" class="btn btn-primary btn-sm" download aria-label="<%= t.nav.downloadCv %> PDF">
@@ -53,13 +53,13 @@
   <!-- Mobile Menu -->
   <div id="nav-mobile" class="nav-mobile" role="menu" aria-label="Mobile navigation">
     <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border-color); margin-bottom: var(--space-xs);">
-      <span style="font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Language</span>
+      <span style="font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Ngôn ngữ / Lang</span>
       <div class="lang-switch-wrap">
-        <button id="lang-toggle-btn-mobile" class="lang-toggle-btn" aria-label="Switch language">
-          <span class="lang-code <%= lang === 'en' ? 'active' : '' %>" data-lang="en">EN</span>
+        <div class="lang-toggle-btn" role="group" aria-label="Chuyển đổi ngôn ngữ / Switch language">
+          <a href="/?lang=vi" class="lang-code <%= lang === 'vi' ? 'active' : '' %>" aria-label="Tiếng Việt">VI</a>
           <span class="lang-sep">/</span>
-          <span class="lang-code <%= lang === 'vi' ? 'active' : '' %>" data-lang="vi">VI</span>
-        </button>
+          <a href="/?lang=en" class="lang-code <%= lang === 'en' ? 'active' : '' %>" aria-label="English">EN</a>
+        </div>
       </div>
     </div>
 

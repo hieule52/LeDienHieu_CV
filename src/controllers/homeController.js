@@ -13,9 +13,9 @@ const homeController = {
    */
   index: async (req, res, next) => {
     try {
-      // Determine language (query param, or default to 'en')
-      const lang = req.query.lang === 'vi' ? 'vi' : 'en';
-      const t = translations[lang] || translations.en;
+      // Determine language (default to Vietnamese 'vi', or 'en' if requested)
+      const lang = req.query.lang === 'en' ? 'en' : 'vi';
+      const t = translations[lang] || translations.vi;
 
       // Base person data
       const person = {

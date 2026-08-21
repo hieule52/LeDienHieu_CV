@@ -95,29 +95,11 @@ export function initNavigation() {
     document.body.style.overflow = '';
   }
 
-  // ─── Language Switcher ──────────────────────────────────────────────────
-  const langBtns = [
-    document.getElementById('lang-toggle-btn'),
-    document.getElementById('lang-toggle-btn-mobile'),
-  ].filter(Boolean);
-
-  // Auto redirect to saved language if root url accessed with no param
-  const urlParams = new URLSearchParams(window.location.search);
-  const savedLang = localStorage.getItem('preferred_lang');
-  if (!urlParams.has('lang') && savedLang && savedLang === 'vi') {
-    urlParams.set('lang', 'vi');
-    window.location.search = urlParams.toString();
-    return;
-  }
-
-  langBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const currentLang = urlParams.get('lang') || 'en';
-      const targetLang = currentLang === 'vi' ? 'en' : 'vi';
-
-      urlParams.set('lang', targetLang);
+  // ─── Language Switcher Persistence ───────────────────────────────────────
+  document.querySelectorAll('.lang-code').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetLang = link.getAttribute('href')?.includes('lang=en') ? 'en' : 'vi';
       localStorage.setItem('preferred_lang', targetLang);
-      window.location.search = urlParams.toString();
     });
   });
 }

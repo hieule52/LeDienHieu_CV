@@ -18,13 +18,13 @@ const errorHandler = {
     if (req.path.startsWith('/api')) {
       return res.status(404).json({ success: false, message: 'Route not found.' });
     }
-    const lang = req.query.lang === 'vi' ? 'vi' : 'en';
-    const t = translations[lang] || translations.en;
+    const lang = req.query.lang === 'en' ? 'en' : 'vi';
+    const t = translations[lang] || translations.vi;
 
     res.status(404).render('404', {
       meta: {
-        title: '404 — Page Not Found | Lê Diên Hiếu',
-        description: 'The page you are looking for does not exist.',
+        title: '404 — Không Tìm Thấy Trang | Lê Diên Hiếu',
+        description: 'Trang bạn đang tìm kiếm không tồn tại.',
       },
       lang,
       t,
@@ -43,8 +43,8 @@ const errorHandler = {
     if (req.path.startsWith('/api')) {
       return res.status(500).json({ success: false, message: 'Internal server error.' });
     }
-    const lang = req.query.lang === 'vi' ? 'vi' : 'en';
-    const t = translations[lang] || translations.en;
+    const lang = req.query.lang === 'en' ? 'en' : 'vi';
+    const t = translations[lang] || translations.vi;
 
     res.status(500).render('500', {
       meta: {
