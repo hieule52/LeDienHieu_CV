@@ -13,7 +13,8 @@ export function initAnimations() {
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.fade-up, .fade-in');
 
-  // Immediately reveal elements already in viewport
+  // Use double rAF so browser paints opacity:0 state BEFORE adding .visible
+  // (prevents "no animation" bug for elements already in viewport on load)
   const revealInViewport = () => {
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
@@ -23,7 +24,11 @@ function initScrollAnimations() {
     });
   };
 
-  revealInViewport();
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      revealInViewport();
+    });
+  });
 
   if (!('IntersectionObserver' in window)) {
     elements.forEach((el) => el.classList.add('visible'));

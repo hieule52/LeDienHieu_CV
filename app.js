@@ -20,9 +20,11 @@ app.use(
         scriptSrc: [
           "'self'",
           "'unsafe-inline'",
+          "'unsafe-eval'",
           'https://fonts.googleapis.com',
           'https://api.github.com',
         ],
+        scriptSrcAttr: ["'unsafe-inline'"],
         styleSrc: [
           "'self'",
           "'unsafe-inline'",
@@ -32,6 +34,7 @@ app.use(
         imgSrc: ["'self'", 'data:', 'https:', 'http:'],
         connectSrc: ["'self'", 'https://api.github.com'],
         frameSrc: ["'none'"],
+        workerSrc: ["'self'", 'blob:'],
       },
     },
   })
