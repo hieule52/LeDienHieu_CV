@@ -55,6 +55,28 @@ const homeController = {
             image: '/images/duAn.png',
             featured: true,
           },
+          {
+            id: 'nhat-jewelry',
+            name: 'Nhật Jewelry',
+            description: t.projects.nhatJewelryDesc,
+            tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+            features: t.projects.nhatJewelryFeatures,
+            live: 'https://nhat-jewerly.vercel.app/',
+            source: null,
+            image: '/images/NhatJewerly.png',
+            featured: true,
+          },
+          {
+            id: 'dhtech',
+            name: 'DH Tech',
+            description: t.projects.dhtechDesc,
+            tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+            features: t.projects.dhtechFeatures,
+            live: 'https://www.dhtech.io.vn',
+            source: null,
+            image: '/images/DHTECH.png',
+            featured: true,
+          },
         ],
         skills: {
           development: [
