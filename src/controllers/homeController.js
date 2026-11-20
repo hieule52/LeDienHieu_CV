@@ -77,6 +77,17 @@ const homeController = {
             image: '/images/DHTECH.png',
             featured: true,
           },
+          {
+            id: 'huyentrangtour',
+            name: 'Huyền Trang Tour',
+            description: t.projects.huyentrangTourDesc,
+            tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'SEO'],
+            features: t.projects.huyentrangTourFeatures,
+            live: 'https://www.huyentrangtour.com',
+            source: null,
+            image: '/images/huyentrangtour.png',
+            featured: true,
+          },
         ],
         skills: {
           development: [

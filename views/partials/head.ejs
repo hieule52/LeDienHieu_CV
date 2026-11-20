@@ -66,6 +66,46 @@
   </script>
   <% } %>
 </head>
-<body>
+<body class="loading-locked">
+  <!-- ═══════════════════════════════ MODERN 5S LOADER ═══════════════════════════════ -->
+  <div id="app-preloader" class="preloader-overlay" aria-hidden="true">
+    <div class="preloader-background-glow"></div>
+    <div class="preloader-card">
+      <!-- Animated Logo Badge -->
+      <div class="preloader-logo-wrap">
+        <div class="preloader-logo-ring"></div>
+        <div class="preloader-logo-ring outer"></div>
+        <span class="preloader-logo-text">&lt;HIEU<span class="dot">.</span>DEV<span class="slash">/&gt;</span></span>
+      </div>
+
+      <!-- Live Terminal / Status Stream -->
+      <div class="preloader-terminal-box">
+        <div class="preloader-terminal-header">
+          <span class="p-dot red"></span>
+          <span class="p-dot yellow"></span>
+          <span class="p-dot green"></span>
+          <span class="preloader-sys-title">SYSTEM_INIT // v2.6.0</span>
+        </div>
+        <div class="preloader-console-lines" id="preloader-logs">
+          <div class="p-line active"><span class="p-arrow">➜</span> <span class="p-cmd">INITIALIZING_CORE_ENGINE...</span></div>
+        </div>
+      </div>
+
+      <!-- Modern Cyberpunk Progress Bar -->
+      <div class="preloader-progress-section">
+        <div class="preloader-progress-info">
+          <span class="preloader-status-text" id="preloader-status">BOOTING ENVIRONMENT</span>
+          <span class="preloader-percent" id="preloader-pct">0%</span>
+        </div>
+        <div class="preloader-track">
+          <div class="preloader-bar" id="preloader-fill"></div>
+          <div class="preloader-light-streak"></div>
+        </div>
+      </div>
+
+      <div class="preloader-subtext">Portfolio · Software Engineer & IT Support Specialist</div>
+    </div>
+  </div>
+
   <!-- Skip Navigation -->
   <a href="#main-content" class="skip-nav">Skip to main content</a>

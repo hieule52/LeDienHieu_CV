@@ -441,6 +441,17 @@ drawProjectCard(
   ],
   C.accent2
 );
+
+// 4. Huyền Trang Tour
+drawProjectCard(
+  'Huyền Trang Tour — Nền Tảng Đặt Tour & Dịch Vụ Du Lịch',
+  'https://www.huyentrangtour.com',
+  [
+    'Công nghệ: HTML5, CSS3, JavaScript, Responsive Mobile-First, SEO Optimization.',
+    'Nền tảng đặt tour trực tuyến với lịch trình chi tiết, giao diện trực quan và trải nghiệm đặt tour thuận tiện.'
+  ],
+  C.accent1
+);
 cy += 3;
 
 // ── 5. IT EXPERIENCE ─────────────────────────────────────────────────────────

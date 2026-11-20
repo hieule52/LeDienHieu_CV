@@ -6,6 +6,75 @@
 import { initNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
 
+// ─── 5-Second Impressive Preloader ───────────────────────────────────────────
+function initPreloader() {
+  const preloader = document.getElementById('app-preloader');
+  if (!preloader) return;
+
+  const logsEl = document.getElementById('preloader-logs');
+  const statusEl = document.getElementById('preloader-status');
+  const pctEl = document.getElementById('preloader-pct');
+  const fillEl = document.getElementById('preloader-fill');
+
+  const DURATION = 5000; // 5 seconds
+  const startTime = performance.now();
+
+  const stages = [
+    { threshold: 0, status: 'BOOTING_ENVIRONMENT', log: 'Mounting virtual system components...' },
+    { threshold: 18, status: 'INITIALIZING_MODULES', log: 'Compiling web architecture & UI interfaces...' },
+    { threshold: 38, status: 'LOADING_PORTFOLIO_ASSETS', log: 'Rendering modern project galleries & responsive layout...' },
+    { threshold: 60, status: 'CONNECTING_SERVICES', log: 'Synchronizing GitHub repositories & contact gateways...' },
+    { threshold: 82, status: 'RUNNING_OPTIMIZATIONS', log: 'Applying modern visual effects & system security filters...' },
+    { threshold: 96, status: 'SYSTEM_READY', log: 'Antigravity workspace synchronized. Welcome!' }
+  ];
+
+  let currentStageIndex = 0;
+
+  function addLog(text) {
+    if (!logsEl) return;
+    const line = document.createElement('div');
+    line.className = 'p-line';
+    line.innerHTML = `<span class="p-arrow">➜</span> <span class="p-cmd">${text}</span>`;
+    logsEl.appendChild(line);
+    logsEl.scrollTop = logsEl.scrollHeight;
+  }
+
+  function update() {
+    const elapsed = performance.now() - startTime;
+    const progress = Math.min(100, Math.floor((elapsed / DURATION) * 100));
+
+    if (pctEl) pctEl.textContent = `${progress}%`;
+    if (fillEl) fillEl.style.width = `${progress}%`;
+
+    // Check stages
+    if (currentStageIndex < stages.length && progress >= stages[currentStageIndex].threshold) {
+      const stage = stages[currentStageIndex];
+      if (statusEl) statusEl.textContent = stage.status;
+      addLog(stage.log);
+      currentStageIndex++;
+    }
+
+    if (elapsed < DURATION) {
+      requestAnimationFrame(update);
+    } else {
+      // Complete preloader transition
+      if (pctEl) pctEl.textContent = '100%';
+      if (fillEl) fillEl.style.width = '100%';
+      if (statusEl) statusEl.textContent = 'LAUNCHING EXPERIENCE';
+
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('loading-locked');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 800);
+      }, 350);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
 // ─── Contact Form ─────────────────────────────────────────────────────────────
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -205,6 +274,7 @@ function escHtml(str) {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
   initNavigation();
   initAnimations();
   initContactForm();

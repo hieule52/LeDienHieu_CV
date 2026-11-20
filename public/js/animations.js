@@ -7,6 +7,7 @@ export function initAnimations() {
   initScrollAnimations();
   initTerminalTyping();
   initTypingRotator();
+  initProjectTiltEffect();
 }
 
 // ─── Scroll reveal (IntersectionObserver) ────────────────────────────────────
@@ -143,4 +144,58 @@ function initTypingRotator() {
   }
 
   tick();
+}
+
+// ─── Modern 3D Tilt & Magnetic Glow Effect for Projects ──────────────────────
+function initProjectTiltEffect() {
+  const cards = document.querySelectorAll('[data-project-card]');
+  if (!cards.length) return;
+
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouchDevice) return; // Skip 3D tilt on mobile for performance
+
+  cards.forEach((card) => {
+    let bounds;
+
+    function rotateToMouse(e) {
+      if (!bounds) bounds = card.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+      };
+
+      const maxTilt = 4.5;
+      const xRot = (-center.y / (bounds.height / 2)) * maxTilt;
+      const yRot = (center.x / (bounds.width / 2)) * maxTilt;
+
+      card.style.transform = `perspective(1000px) rotateX(${xRot.toFixed(2)}deg) rotateY(${yRot.toFixed(2)}deg) translateY(-4px)`;
+
+      // Dynamic mouse spotlight gradient
+      const glow = card.querySelector('.project-glow-backdrop');
+      if (glow) {
+        glow.style.background = `radial-gradient(circle 350px at ${leftX}px ${topY}px, rgba(56, 189, 248, 0.18), transparent 70%)`;
+        glow.style.opacity = '1';
+      }
+    }
+
+    card.addEventListener('mouseenter', () => {
+      bounds = card.getBoundingClientRect();
+      card.style.transition = 'transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
+    });
+
+    card.addEventListener('mousemove', rotateToMouse);
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      const glow = card.querySelector('.project-glow-backdrop');
+      if (glow) {
+        glow.style.opacity = '0';
+      }
+    });
+  });
 }

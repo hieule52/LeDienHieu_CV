@@ -12,12 +12,14 @@
     <div class="projects-grid">
       <% projects.forEach(function(project, index) { %>
         <article
-          class="card card-hoverable project-card-featured fade-up"
+          class="card card-hoverable project-card-featured fade-up project-interactive-item"
           style="transition-delay:<%= index * 120 %>ms"
           aria-label="Project: <%= project.name %>"
+          data-project-card
         >
           <!-- Project Image Showcase -->
           <div class="project-showcase-image">
+            <div class="project-glow-backdrop" aria-hidden="true"></div>
             <img
               src="<%= project.image %>"
               alt="<%= project.name %> - <%= t.projects.featuredBadge %>"
@@ -30,11 +32,16 @@
             <!-- Desktop Hover Overlay -->
             <div class="project-overlay-actions" aria-hidden="true">
               <% if (project.live) { %>
-                <a href="<%= project.live %>" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+                <a href="<%= project.live %>" class="btn btn-primary btn-sm project-hover-btn" target="_blank" rel="noopener noreferrer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  <%= t.projects.btnLive %>
+                  <span><%= t.projects.btnLive %></span>
                 </a>
               <% } %>
+            </div>
+            
+            <div class="project-view-badge" aria-hidden="true">
+              <span class="live-pulse-dot"></span>
+              <span>LIVE</span>
             </div>
           </div>
 
